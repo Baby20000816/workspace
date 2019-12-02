@@ -204,123 +204,18 @@
       <select />
     </treeState>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.24">
-    <configuration name="JuheDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.scs.web.blog.util.JuheDemo" />
-      <module name="blog" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.scs.web.blog.util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ECS on Alibaba Cloud" type="ECS_RUN_CONFIGRATION" factoryName="Ecs configuration factory">
-      <option name="address" />
-      <option name="afterCommand" value="sh /usr/local/tomcat9/bin/startup.sh" />
-      <option name="alreadyReset" value="true" />
-      <option name="autoOpen" value="false" />
-      <option name="beforeCommand" />
-      <option name="defaultTabIdx" value="0" />
-      <option name="ecsInstance">
-        <EcsInstance>
-          <option name="OSType" value="linux" />
-          <option name="instanceId" value="i-2zej2hs92pnxj1o3xzm2" />
-          <option name="instanceName" value="taoranran" />
-          <option name="netType" value="vpc" />
-          <option name="privateIps" value="172.17.100.216" />
-          <option name="publicIps" value="39.96.182.225" />
-          <option name="regionId" value="cn-beijing" />
-          <option name="tags">
-            <list />
-          </option>
-        </EcsInstance>
-      </option>
-      <option name="hostTagId" value="0" />
-      <option name="location" value="/usr/local/tomcat9/webapps" />
-      <option name="pathOrUrl" value="D:\tomcat9\webapps\blog.war" />
-      <option name="tagId" value="0" />
-      <option name="terminalCommand" />
-      <option name="type" value="ECS" />
-      <option name="uploadType" value="FILE" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ArticleServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="work" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.scs.web.blog.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.scs.web.blog.service" />
-      <option name="MAIN_CLASS_NAME" value="com.scs.web.blog.service.ArticleServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserDaoTest.insert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="blog" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.scs.web.blog.dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.scs.web.blog.dao" />
-      <option name="MAIN_CLASS_NAME" value="com.scs.web.blog.dao.UserDaoTest" />
-      <option name="METHOD_NAME" value="insert" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="work" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.scs.web.blog.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.scs.web.blog.service" />
-      <option name="MAIN_CLASS_NAME" value="com.scs.web.blog.service.UserServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest.signUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="blog" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.scs.web.blog.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.scs.web.blog.service" />
-      <option name="MAIN_CLASS_NAME" value="com.scs.web.blog.service.UserServiceTest" />
-      <option name="METHOD_NAME" value="signUp" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="Tomcat 9.0.24" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.24" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER" value="false" />
       <deployment>
-        <artifact name="work:war exploded">
+        <artifact name="blogh:war exploded">
           <settings>
             <option name="CONTEXT_PATH" value="/" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Unnamed_work" />
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_blogh" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -328,7 +223,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="52664" />
+        <option name="DEBUG_PORT" value="54738" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -378,27 +273,10 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="work:war exploded" />
+          <artifact name="blogh:war exploded" />
         </option>
       </method>
     </configuration>
-    <list>
-      <item itemvalue="Application.JuheDemo" />
-      <item itemvalue="JUnit.UserDaoTest.insert" />
-      <item itemvalue="JUnit.UserServiceTest.signUp" />
-      <item itemvalue="JUnit.ArticleServiceTest" />
-      <item itemvalue="JUnit.UserServiceTest" />
-      <item itemvalue="Tomcat Server.Tomcat 9.0.24" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.ArticleServiceTest" />
-        <item itemvalue="JUnit.UserServiceTest" />
-        <item itemvalue="Application.JuheDemo" />
-        <item itemvalue="JUnit.UserServiceTest.signUp" />
-        <item itemvalue="JUnit.UserDaoTest.insert" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -466,7 +344,7 @@
       <workItem from="1575181073836" duration="1229000" />
       <workItem from="1575246616388" duration="395000" />
       <workItem from="1575247038267" duration="1870000" />
-      <workItem from="1575249222895" duration="299000" />
+      <workItem from="1575249222895" duration="649000" />
     </task>
     <task id="LOCAL-00001" summary="blog项目，完成用户数据初始化和登录功能测试">
       <created>1573274056873</created>
@@ -552,7 +430,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575249355794</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="功能测试">
+      <created>1575249687421</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1575249687421</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -594,10 +479,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1575249498001" />
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575247465001">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575249873073">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575247465001" />
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575249873073" />
     <state x="690" y="274" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1575246968774">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -610,22 +495,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1575247398989" />
-    <state width="1676" height="353" key="GridCell.Tab.0.bottom" timestamp="1575247924706">
+    <state width="1676" height="353" key="GridCell.Tab.0.bottom" timestamp="1575249905233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1676" height="353" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1575247924706" />
-    <state width="1676" height="353" key="GridCell.Tab.0.center" timestamp="1575247924706">
+    <state width="1676" height="353" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1575249905233" />
+    <state width="1676" height="353" key="GridCell.Tab.0.center" timestamp="1575249905233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1676" height="353" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1575247924706" />
-    <state width="1676" height="353" key="GridCell.Tab.0.left" timestamp="1575247924706">
+    <state width="1676" height="353" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1575249905233" />
+    <state width="1676" height="353" key="GridCell.Tab.0.left" timestamp="1575249905232">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1676" height="353" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1575247924706" />
-    <state width="1676" height="353" key="GridCell.Tab.0.right" timestamp="1575247924706">
+    <state width="1676" height="353" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1575249905232" />
+    <state width="1676" height="353" key="GridCell.Tab.0.right" timestamp="1575249905233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1676" height="353" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1575247924706" />
+    <state width="1676" height="353" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1575249905233" />
     <state width="1676" height="353" key="GridCell.Tab.1.bottom" timestamp="1575247924706">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
