@@ -15,6 +15,14 @@ import java.util.List;
  **/
 public interface ArticleDao {
     /**
+     * 新增用户
+     *
+     * @param article
+     * @throws SQLException
+     */
+    void insert(Article article) throws SQLException;
+
+    /**
      * 批量新增文章
      *
      * @param articleList

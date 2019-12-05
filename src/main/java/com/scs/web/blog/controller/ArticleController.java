@@ -2,9 +2,12 @@ package com.scs.web.blog.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.scs.web.blog.domain.dto.ArticleDto;
 import com.scs.web.blog.factory.ServiceFactory;
 import com.scs.web.blog.service.ArticleService;
+import com.scs.web.blog.util.HttpUtil;
 import com.scs.web.blog.util.Result;
+import com.scs.web.blog.util.UrlPatten;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -85,5 +88,22 @@ public class ArticleController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String uri = req.getRequestURI().trim();
+        switch (uri) {
+            case UrlPatten.ARTICLE_WRITE:
+                Insert(req, resp);
+                break;
+            default:
+        }
+        }
+    private void Insert(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String requestBody = HttpUtil.getRequestBody(req);
+        logger.info("登录用户信息：" + requestBody);
+        Gson gson = new GsonBuilder().create();
+        ArticleDto articleDto = gson.fromJson(requestBody, ArticleDto.class);
+        HttpUtil.getResponseBody(resp, articleService.Write(articleDto));
+
+
     }
+
 }

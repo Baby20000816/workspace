@@ -1,7 +1,9 @@
 package com.scs.web.blog.service.impl;
 
 import com.scs.web.blog.dao.ArticleDao;
+import com.scs.web.blog.domain.dto.ArticleDto;
 import com.scs.web.blog.domain.vo.ArticleVo;
+import com.scs.web.blog.entity.Article;
 import com.scs.web.blog.factory.DaoFactory;
 import com.scs.web.blog.service.ArticleService;
 import com.scs.web.blog.util.Result;
@@ -80,6 +82,18 @@ public class ArticleServiceImpl implements ArticleService {
             return Result.success(articleVoList);
         } else {
             return Result.failure(ResultCode.RESULT_CODE_DATA_NONE);
+        }
+    }
+
+    @Override
+    public Result Write(ArticleDto articleDto) {
+        Article article = new Article();
+        try {
+            articleDao.insert(article);
+            return Result.success();
+        } catch (SQLException e) {
+            logger.error("发布文章出现异常");
+            return Result.failure(ResultCode.ARTICLE_WRITER_FAIL);
         }
     }
 }

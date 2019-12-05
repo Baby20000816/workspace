@@ -17,6 +17,7 @@ public class UrlPatten {
     public static final String TOPIC_SUB = "/api/topic/*";
     public static final String ARTICLE = "/api/article";
     public static final String ARTICLE_SUB = "/api/article/*";
+    public static final String ARTICLE_WRITE = "/api/article/write";
 
     public static final String WEATHER = "/api/weather";
 

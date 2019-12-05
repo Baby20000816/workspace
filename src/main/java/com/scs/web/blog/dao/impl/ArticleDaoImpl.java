@@ -25,6 +25,19 @@ public class ArticleDaoImpl implements ArticleDao {
     private static Logger logger = LoggerFactory.getLogger(ArticleDaoImpl.class);
 
     @Override
+    public void insert(Article article) throws SQLException {
+        Connection connection = DbUtil.getConnection();
+        String sql = "INSERT INTO t_article (title,content) VALUES (?,?) ";
+        PreparedStatement pst = connection.prepareStatement(sql);
+
+        pst.setString(1, article.getTitle());
+        pst.setString(2, article.getContent());
+
+        pst.executeUpdate();
+        DbUtil.close(connection, pst);
+    }
+
+    @Override
     public void batchInsert(List<Article> articleList) throws SQLException {
         Connection connection = DbUtil.getConnection();
         connection.setAutoCommit(false);
