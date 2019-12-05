@@ -28,17 +28,6 @@ public class Article {
     private Integer comments;
     private LocalDateTime createTime;
 
-    public Article(String title, String summary, String thumbnail, String content, Integer likes, Integer comments, LocalDateTime createTime) {
-        this.userId = userId;
-        this.topicId = topicId;
-        this.title = title;
-        this.summary = summary;
-        this.thumbnail = thumbnail;
-        this.content = content;
-        this.likes = likes;
-        this.comments = comments;
-        this.createTime = createTime;
-    }
 
 
 }

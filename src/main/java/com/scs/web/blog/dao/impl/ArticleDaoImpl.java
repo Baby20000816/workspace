@@ -27,15 +27,21 @@ public class ArticleDaoImpl implements ArticleDao {
     @Override
     public int insert(Article article) throws SQLException {
         Connection connection = DbUtil.getConnection();
-        String sql = "INSERT INTO t_article (title,content) VALUES (?,?) ";
+        String sql = "INSERT INTO t_article (user_id,topic_id,title,summary,thumbnail,content,likes,comments,create_time) VALUES (?,?,?,?,?,?,?,?,?) ";
         PreparedStatement pst = connection.prepareStatement(sql);
-
-        pst.setString(1, article.getTitle());
-        pst.setString(2, article.getContent());
-
+        pst.setLong(1, article.getUserId());
+        pst.setLong(2, article.getTopicId());
+        pst.setString(3, article.getTitle());
+        pst.setString(4, article.getSummary());
+        pst.setString(5, article.getThumbnail());
+        pst.setString(6, article.getContent());
+        pst.setInt(7,0);
+        pst.setInt(8,0);
+        pst.setObject(9, article.getCreateTime());
         pst.executeUpdate();
         DbUtil.close(connection, pst);
-        return 0;
+        int n = pst.executeUpdate();
+        return n;
     }
 
     @Override

@@ -10,22 +10,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ef6ba93-9fb2-45f7-ba50-4e769c2c48ac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/com/scs/web/blog/service/impl/ArticleServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/controller/ArticleAddController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/dao/ArticleAddDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/dao/impl/ArticleAddDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/domain/dto/ArticleAddDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/entity/ArticleAdd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/service/ArticleAddService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/service/impl/ArticleAddServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/com/scs/web/blog/dao/ArticleAddDaoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/com/scs/web/blog/service/ArticleAddServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/controller/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/controller/ArticleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/dao/ArticleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/dao/ArticleDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/dao/impl/ArticleDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/dao/impl/ArticleDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/dao/impl/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/dao/impl/UserDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/domain/dto/ArticleDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/domain/dto/ArticleDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/entity/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/entity/Article.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/factory/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/factory/DaoFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/service/ArticleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/service/ArticleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/service/impl/ArticleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/service/impl/ArticleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/util/ResultCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/util/ResultCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db-config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db-config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/factory/ServiceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/scs/web/blog/factory/ServiceFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/com/scs/web/blog/dao/ArticleDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/scs/web/blog/dao/ArticleDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/com/scs/web/blog/dao/UserDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/scs/web/blog/dao/UserDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/com/scs/web/blog/service/ArticleServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/scs/web/blog/service/ArticleServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/com/scs/web/blog/service/impl/ArticleServiceImplTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,8 +85,8 @@
         <option value="Enum" />
         <option value="HTML File" />
         <option value="Jsp File" />
-        <option value="JUnit4 Test Class" />
         <option value="Interface" />
+        <option value="JUnit4 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -167,13 +168,14 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2124617" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Background" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.scs.web.blog.service.impl" />
-      <recent name="com.scs.web.blog.dao" />
       <recent name="com.scs.web.blog.service" />
+      <recent name="com.scs.web.blog.dao" />
+      <recent name="com.scs.web.blog.domain.dto" />
+      <recent name="com.scs.web.blog.service.impl" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.scs.web.blog.dao" />
@@ -227,7 +229,7 @@
     </treeState>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.24">
-    <configuration name="ArticleDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ArticleAddDaoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="blogh" />
       <extension name="coverage">
         <pattern>
@@ -236,13 +238,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.scs.web.blog.dao" />
-      <option name="MAIN_CLASS_NAME" value="com.scs.web.blog.dao.ArticleDaoTest" />
+      <option name="MAIN_CLASS_NAME" value="com.scs.web.blog.dao.ArticleAddDaoTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ArticleDaoTest.insert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ArticleAddDaoTest.insert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="blogh" />
       <extension name="coverage">
         <pattern>
@@ -251,14 +253,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.scs.web.blog.dao" />
-      <option name="MAIN_CLASS_NAME" value="com.scs.web.blog.dao.ArticleDaoTest" />
+      <option name="MAIN_CLASS_NAME" value="com.scs.web.blog.dao.ArticleAddDaoTest" />
       <option name="METHOD_NAME" value="insert" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ArticleServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ArticleAddServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="blogh" />
       <extension name="coverage">
         <pattern>
@@ -267,8 +269,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.scs.web.blog.service" />
-      <option name="MAIN_CLASS_NAME" value="com.scs.web.blog.service.ArticleServiceTest" />
+      <option name="MAIN_CLASS_NAME" value="com.scs.web.blog.service.ArticleAddServiceTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ArticleAddServiceTest.addArticle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="blogh" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.scs.web.blog.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.scs.web.blog.service" />
+      <option name="MAIN_CLASS_NAME" value="com.scs.web.blog.service.ArticleAddServiceTest" />
+      <option name="METHOD_NAME" value="addArticle" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -284,22 +302,6 @@
       <option name="PACKAGE_NAME" value="com.scs.web.blog.service" />
       <option name="MAIN_CLASS_NAME" value="com.scs.web.blog.service.ArticleServiceTest" />
       <option name="METHOD_NAME" value="getArticle" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserDaoTest.insert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="blogh" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.scs.web.blog.dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.scs.web.blog.dao" />
-      <option name="MAIN_CLASS_NAME" value="com.scs.web.blog.dao.UserDaoTest" />
-      <option name="METHOD_NAME" value="insert" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -378,20 +380,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.ArticleDaoTest" />
-      <item itemvalue="JUnit.ArticleServiceTest" />
-      <item itemvalue="JUnit.UserDaoTest.insert" />
-      <item itemvalue="JUnit.ArticleDaoTest.insert" />
       <item itemvalue="JUnit.ArticleServiceTest.getArticle" />
+      <item itemvalue="JUnit.ArticleAddDaoTest.insert" />
+      <item itemvalue="JUnit.ArticleAddDaoTest" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.24" />
+      <item itemvalue="JUnit.ArticleAddServiceTest.addArticle" />
+      <item itemvalue="JUnit.ArticleAddServiceTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ArticleAddDaoTest.insert" />
+        <item itemvalue="JUnit.ArticleAddServiceTest.addArticle" />
+        <item itemvalue="JUnit.ArticleAddServiceTest" />
+        <item itemvalue="JUnit.ArticleAddDaoTest" />
         <item itemvalue="JUnit.ArticleServiceTest.getArticle" />
-        <item itemvalue="JUnit.ArticleDaoTest.insert" />
-        <item itemvalue="JUnit.UserDaoTest.insert" />
-        <item itemvalue="JUnit.ArticleDaoTest" />
-        <item itemvalue="JUnit.ArticleServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -399,12 +401,17 @@
     <option name="viewStates">
       <list>
         <serviceView>
-          <option name="contentProportion" value="0.09253247" />
+          <option name="contentProportion" value="0.120631345" />
           <treeState>
             <expand>
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
@@ -463,7 +470,8 @@
       <workItem from="1575247038267" duration="1870000" />
       <workItem from="1575249222895" duration="8692000" />
       <workItem from="1575417556559" duration="24421000" />
-      <workItem from="1575503850071" duration="2029000" />
+      <workItem from="1575503850071" duration="9569000" />
+      <workItem from="1575514846746" duration="8577000" />
     </task>
     <task id="LOCAL-00001" summary="blog项目，完成用户数据初始化和登录功能测试">
       <created>1573274056873</created>
@@ -570,7 +578,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575505125227</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="文章发布功能，暂时只能加一条空信息，并不能完全发布">
+      <created>1575506016344</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1575506016344</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -609,10 +624,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="文章发布功能，暂时只能加一条空信息，并不能完全发布" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="178" key="#Notifications" timestamp="1575249498001">
+    <state x="552" y="178" key="#Notifications" timestamp="1575506366755">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="178" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1575249498001" />
+    <state x="552" y="178" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1575506366755" />
     <state x="552" y="178" key="#SQL_Resolution_Scopes" timestamp="1575442115676">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -621,10 +636,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575249873073" />
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1575442995752">
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1575515916629">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1575442995752" />
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1575515916629" />
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1575449831944">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -633,82 +648,86 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="274" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575246968774" />
-    <state x="253" y="77" width="1336" height="840" key="CommitChangelistDialog2" timestamp="1575505984339">
+    <state x="253" y="77" width="1336" height="840" key="CommitChangelistDialog2" timestamp="1575506010667">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="253" y="77" width="1336" height="840" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1575505984339" />
+    <state x="253" y="77" width="1336" height="840" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1575506010667" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1575247398989">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1575247398989" />
-    <state width="1676" height="439" key="GridCell.Tab.0.bottom" timestamp="1575459686860">
+    <state width="1624" height="270" key="GridCell.Tab.0.bottom" timestamp="1575555122653">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1676" height="439" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1575459686860" />
-    <state width="1676" height="439" key="GridCell.Tab.0.center" timestamp="1575459686859">
+    <state width="1624" height="270" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1575555122653" />
+    <state width="1624" height="270" key="GridCell.Tab.0.center" timestamp="1575555122653">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1676" height="439" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1575459686859" />
-    <state width="1676" height="439" key="GridCell.Tab.0.left" timestamp="1575459686859">
+    <state width="1624" height="270" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1575555122653" />
+    <state width="1624" height="270" key="GridCell.Tab.0.left" timestamp="1575555122653">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1676" height="439" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1575459686859" />
-    <state width="1676" height="439" key="GridCell.Tab.0.right" timestamp="1575459686860">
+    <state width="1624" height="270" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1575555122653" />
+    <state width="1624" height="270" key="GridCell.Tab.0.right" timestamp="1575555122653">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1676" height="439" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1575459686860" />
-    <state width="1676" height="439" key="GridCell.Tab.1.bottom" timestamp="1575459686860">
+    <state width="1624" height="270" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1575555122653" />
+    <state width="1624" height="270" key="GridCell.Tab.1.bottom" timestamp="1575555122653">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1676" height="439" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1575459686860" />
-    <state width="1676" height="439" key="GridCell.Tab.1.center" timestamp="1575459686860">
+    <state width="1624" height="270" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1575555122653" />
+    <state width="1624" height="270" key="GridCell.Tab.1.center" timestamp="1575555122653">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1676" height="439" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1575459686860" />
-    <state width="1676" height="439" key="GridCell.Tab.1.left" timestamp="1575459686860">
+    <state width="1624" height="270" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1575555122653" />
+    <state width="1624" height="270" key="GridCell.Tab.1.left" timestamp="1575555122653">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1676" height="439" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1575459686860" />
-    <state width="1676" height="439" key="GridCell.Tab.1.right" timestamp="1575459686860">
+    <state width="1624" height="270" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1575555122653" />
+    <state width="1624" height="270" key="GridCell.Tab.1.right" timestamp="1575555122653">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1676" height="439" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1575459686860" />
-    <state width="1676" height="439" key="GridCell.Tab.2.bottom" timestamp="1575459686861">
+    <state width="1624" height="270" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1575555122653" />
+    <state width="1624" height="270" key="GridCell.Tab.2.bottom" timestamp="1575555122654">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1676" height="439" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1575459686861" />
-    <state width="1676" height="439" key="GridCell.Tab.2.center" timestamp="1575459686861">
+    <state width="1624" height="270" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1575555122654" />
+    <state width="1624" height="270" key="GridCell.Tab.2.center" timestamp="1575555122654">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1676" height="439" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1575459686861" />
-    <state width="1676" height="439" key="GridCell.Tab.2.left" timestamp="1575459686860">
+    <state width="1624" height="270" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1575555122654" />
+    <state width="1624" height="270" key="GridCell.Tab.2.left" timestamp="1575555122653">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1676" height="439" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1575459686860" />
-    <state width="1676" height="439" key="GridCell.Tab.2.right" timestamp="1575459686861">
+    <state width="1624" height="270" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1575555122653" />
+    <state width="1624" height="270" key="GridCell.Tab.2.right" timestamp="1575555122654">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1676" height="439" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1575459686861" />
+    <state width="1624" height="270" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1575555122654" />
     <state x="540" y="254" key="IDE.errors.dialog" timestamp="1575252494976">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="540" y="254" key="IDE.errors.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575252494976" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1575247570011">
+    <state x="440" y="94" key="SettingsEditor" timestamp="1575506746602">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1575247570011" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1575505129327">
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1575506746602" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1575506037751">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1575505129327" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1575506037751" />
     <state x="669" y="0" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1575442136471">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="669" y="0" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575442136471" />
-    <state x="731" y="237" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1575436824753">
+    <state x="731" y="237" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1575515109248">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="731" y="237" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575436824753" />
+    <state x="731" y="237" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575515109248" />
+    <state x="690" y="284" key="extract.method.dialog" timestamp="1575514909901">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="284" key="extract.method.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575514909901" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1575504287296">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

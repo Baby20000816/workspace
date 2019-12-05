@@ -3,20 +3,20 @@ package com.scs.web.blog.domain.dto;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * @author jh_wu
- * @ClassName ArticleDto
+ * @ClassName ArticleAddDto
  * @Description TODO
- * @Date 2019/12/4:11:40
+ * @Date 2019/12/5:11:05
  * @Version 1.0
  **/
 @Data
-public class ArticleDto implements Serializable {
+public class ArticleAddDto implements Serializable {
     private Long userId;
-    private Long topicId;
     private String title;
     private String summary;
-    private String thumbnail;
     private String content;
+    private LocalDateTime createTime;
 }
