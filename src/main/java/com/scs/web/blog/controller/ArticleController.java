@@ -2,10 +2,9 @@ package com.scs.web.blog.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.scs.web.blog.domain.dto.ArticleDto;
+import com.scs.web.blog.entity.Article;
 import com.scs.web.blog.factory.ServiceFactory;
 import com.scs.web.blog.service.ArticleService;
-import com.scs.web.blog.util.HttpUtil;
 import com.scs.web.blog.util.Result;
 import com.scs.web.blog.util.UrlPatten;
 import org.slf4j.Logger;
@@ -16,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -97,11 +97,29 @@ public class ArticleController extends HttpServlet {
         }
         }
     private void Insert(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String requestBody = HttpUtil.getRequestBody(req);
-        logger.info("登录用户信息：" + requestBody);
+        //请求字符集设置
+        req.setCharacterEncoding("UTF-8");
+        //接送客户端船体的Json数据，通过缓冲字符流按行读取，存入可变长字符串中
+        BufferedReader reader = req.getReader();
+        StringBuilder stringBuilder = new StringBuilder();
+        String line = null;
+        while((line = reader.readLine())!=null){
+            stringBuilder.append(line);
+        }
+        System.out.println(stringBuilder.toString());
+        //将接受到的客户端JSON字符串转成User对象
         Gson gson = new GsonBuilder().create();
-        ArticleDto articleDto = gson.fromJson(requestBody, ArticleDto.class);
-        HttpUtil.getResponseBody(resp, articleService.Write(articleDto));
+        Article article =gson.fromJson(stringBuilder.toString(),Article.class);
+
+        System.out.println(article);
+
+        //插入数据库，并返回该行主键
+        Result rs = articleService.Write(article);
+        //补全user的id字段信息
+        //通过response对象返回Json信息
+        PrintWriter out = resp.getWriter();
+        out.print(gson.toJson(rs));
+        out.close();
 
 
     }

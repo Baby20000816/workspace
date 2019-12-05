@@ -19,8 +19,9 @@ public interface ArticleDao {
      *
      * @param article
      * @throws SQLException
+     * @return
      */
-    void insert(Article article) throws SQLException;
+    int insert(Article article) throws SQLException;
 
     /**
      * 批量新增文章

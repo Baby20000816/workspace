@@ -25,7 +25,7 @@ public class ArticleDaoImpl implements ArticleDao {
     private static Logger logger = LoggerFactory.getLogger(ArticleDaoImpl.class);
 
     @Override
-    public void insert(Article article) throws SQLException {
+    public int insert(Article article) throws SQLException {
         Connection connection = DbUtil.getConnection();
         String sql = "INSERT INTO t_article (title,content) VALUES (?,?) ";
         PreparedStatement pst = connection.prepareStatement(sql);
@@ -35,6 +35,7 @@ public class ArticleDaoImpl implements ArticleDao {
 
         pst.executeUpdate();
         DbUtil.close(connection, pst);
+        return 0;
     }
 
     @Override

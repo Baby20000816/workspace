@@ -27,10 +27,23 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void insert(User user) throws SQLException {
         Connection connection = DbUtil.getConnection();
-        String sql = "INSERT INTO t_user (mobile,password) VALUES (?,?) ";
+        String sql = "INSERT INTO t_user (mobile,password,nickname,avatar,gender,birthday,address,introduction,banner,homepage,follows,fans,articles,create_time,status) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
         PreparedStatement pst = connection.prepareStatement(sql);
         pst.setString(1, user.getMobile());
         pst.setString(2, user.getPassword());
+        pst.setString(3, user.getNickname());
+        pst.setString(4, user.getAvatar());
+        pst.setString(5, user.getGender());
+        pst.setObject(6, user.getBirthday());
+        pst.setString(7, user.getAddress());
+        pst.setString(8, user.getIntroduction());
+        pst.setString(9, user.getBanner());
+        pst.setString(10, user.getHomepage());
+        pst.setInt(11, 0);
+        pst.setInt(12, 0);
+        pst.setInt(13, 0);
+        pst.setObject(14, user.getCreateTime());
+        pst.setShort(15, user.getStatus());
         pst.executeUpdate();
         DbUtil.close(connection, pst);
     }

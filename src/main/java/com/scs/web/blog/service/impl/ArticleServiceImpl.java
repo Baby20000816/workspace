@@ -1,7 +1,6 @@
 package com.scs.web.blog.service.impl;
 
 import com.scs.web.blog.dao.ArticleDao;
-import com.scs.web.blog.domain.dto.ArticleDto;
 import com.scs.web.blog.domain.vo.ArticleVo;
 import com.scs.web.blog.entity.Article;
 import com.scs.web.blog.factory.DaoFactory;
@@ -12,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -86,14 +86,19 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public Result Write(ArticleDto articleDto) {
-        Article article = new Article();
+    public Result Write(Article article) {
+        int n = 0;
         try {
-            articleDao.insert(article);
-            return Result.success();
+            article.setCreateTime(LocalDateTime.now());
+            n = articleDao.insert(article);
+
+            System.out.println();
         } catch (SQLException e) {
-            logger.error("发布文章出现异常");
-            return Result.failure(ResultCode.ARTICLE_WRITER_FAIL);
+            logger.error("文章发布失败");
         }
+        if(n != 0){
+            return Result.success(n);
+        }
+        return Result.failure(ResultCode.ARTICLE_WRITER_FAIL);
     }
 }

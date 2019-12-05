@@ -1,5 +1,6 @@
 package com.scs.web.blog.service;
 
+import com.scs.web.blog.entity.Article;
 import com.scs.web.blog.util.Result;
 
 /**
@@ -42,4 +43,12 @@ public interface ArticleService {
      * @return
      */
     Result selectByKeywords(String keywords);
+
+    /**
+     * 发布文章
+     *
+     * @param
+     * @return
+     */
+    Result Write(Article article);
 }
