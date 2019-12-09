@@ -1,10 +1,12 @@
 package com.scs.web.blog.dao.impl;
 
 import com.scs.web.blog.dao.UserDao;
+import com.scs.web.blog.domain.dto.UserDto;
 import com.scs.web.blog.domain.vo.UserVo;
 import com.scs.web.blog.entity.User;
 import com.scs.web.blog.util.BeanHandler;
 import com.scs.web.blog.util.DbUtil;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +17,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- * @author mq_xu
+ * @author
  * @ClassName UserDaoImpl
  * @Description UserDao数据访问对象接口实现类
  * @Date 2019/11/9
@@ -25,27 +27,30 @@ public class UserDaoImpl implements UserDao {
     private static Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
 
     @Override
-    public void insert(User user) throws SQLException {
+    public void insert(UserDto userDto) throws SQLException {
         Connection connection = DbUtil.getConnection();
-        String sql = "INSERT INTO t_user (mobile,password,nickname,avatar,gender,birthday,address,introduction,banner,homepage,follows,fans,articles,create_time,status) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ";
+        String sql = "INSERT INTO t_user (mobile,password,nickname,birthday,create_time) VALUES (?,?,?,?,?) ";
         PreparedStatement pst = connection.prepareStatement(sql);
-        pst.setString(1, user.getMobile());
-        pst.setString(2, user.getPassword());
-        pst.setString(3, user.getNickname());
-        pst.setString(4, user.getAvatar());
-        pst.setString(5, user.getGender());
-        pst.setObject(6, user.getBirthday());
-        pst.setString(7, user.getAddress());
-        pst.setString(8, user.getIntroduction());
-        pst.setString(9, user.getBanner());
-        pst.setString(10, user.getHomepage());
-        pst.setInt(11, 0);
-        pst.setInt(12, 0);
-        pst.setInt(13, 0);
-        pst.setObject(14, user.getCreateTime());
-        pst.setShort(15, user.getStatus());
+        pst.setString(1, userDto.getMobile());
+        pst.setString(2, userDto.getPassword());
+        pst.setString(3, userDto.getNickname());
+        pst.setObject(4,userDto.getBirthday());
+        pst.setObject(5, userDto.getCreateTime());
         pst.executeUpdate();
         DbUtil.close(connection, pst);
+    }
+
+
+    @Override
+    public void update(User user) throws SQLException {
+        Connection connection = DbUtil.getConnection();
+        String sql = "UPDATE t_user SET nickname = ?,password=?,address = ?  WHERE id = ?";
+        PreparedStatement pst = connection.prepareStatement(sql);
+        pst.setString(1, user.getNickname());
+        pst.setString(2, DigestUtils.md5Hex(user.getPassword()));
+        pst.setString(3, user.getAddress());
+        pst.setLong(4, user.getId());
+        pst.executeUpdate();
     }
 
     @Override
@@ -88,10 +93,10 @@ public class UserDaoImpl implements UserDao {
         PreparedStatement pst = connection.prepareStatement(sql);
         pst.setString(1, mobile);
         ResultSet rs = pst.executeQuery();
-        List<User> userList = BeanHandler.convertUser(rs);
+        List<User> users = BeanHandler.convertUser(rs);
         User user = null;
-        if (userList.size() != 0) {
-            user = userList.get(0);
+        if (users.size() != 0) {
+            user = users.get(0);
         }
         DbUtil.close(connection, pst, rs);
         return user;
@@ -148,4 +153,8 @@ public class UserDaoImpl implements UserDao {
         DbUtil.close(connection, pst, rs);
         return userList;
     }
+
+
+
+
 }

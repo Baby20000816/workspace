@@ -1,5 +1,6 @@
 package com.scs.web.blog.dao;
 
+import com.scs.web.blog.domain.dto.UserDto;
 import com.scs.web.blog.domain.vo.UserVo;
 import com.scs.web.blog.entity.User;
 
@@ -7,10 +8,10 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- * @author mq_xu
+ * @author
  * @ClassName UserDao
  * @Description UserDao数据访问对象接口
- * @Date 2019/11/9
+ * @Date 10:54 2019/11/9
  * @Version 1.0
  **/
 public interface UserDao {
@@ -20,7 +21,11 @@ public interface UserDao {
      * @param user
      * @throws SQLException
      */
-    void insert(User user) throws SQLException;
+    void insert(UserDto userDto) throws SQLException;
+
+
+
+    void update(User user) throws SQLException;
 
     /**
      * 批量新增用户
@@ -50,8 +55,7 @@ public interface UserDao {
 
     /**
      * 查询分页用户
-     * @param currentPage
-     * @param count
+     *
      * @return
      * @throws SQLException
      */
@@ -73,5 +77,6 @@ public interface UserDao {
      * @throws SQLException
      */
     List<User> selectByKeywords(String keywords) throws SQLException;
+
 
 }

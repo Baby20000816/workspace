@@ -29,8 +29,8 @@ public enum ResultCode {
     USER_NOT_EXIST(20006, "用户不存在"),
     USER_HAS_EXISTED(20007, "用户已存在"),
     USER_SIGN_UP_FAIL(2008,"用户注册失败"),
-    ARTICLE_WRITER_FAIL(2009,"文章发布失败"),
-
+    USER_UPDATE_FAIL(2009,"用户更新失败"),
+    ARTICLE_WRITER_FAIL(2010,"文章发布失败"),
     /* 业务错误：30001-39999 */
     SPECIFIED_QUESTIONED_USER_NOT_EXIST(30001, "某业务出现问题"),
 
@@ -52,6 +52,7 @@ public enum ResultCode {
 
     /* 权限错误：70001-79999 */
     PERMISSION_NO_ACCESS(70001, "无访问权限");
+
 
     private Integer code;
 

@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class ArticleAddDaoTest {
 private ArticleAddDao articleAddDao = DaoFactory.getArticleAddDaoInstance();
@@ -23,5 +24,12 @@ private ArticleAddDao articleAddDao = DaoFactory.getArticleAddDaoInstance();
         articleAdd.setCreateTime(LocalDateTime.now());
         int n = articleAddDao.insert(articleAdd);
         System.out.println(n);
+    }
+
+    @Test
+    public void selectAll() throws SQLException
+    {
+        List<ArticleAdd> articleAddList = articleAddDao.selectAll();
+        articleAddList.forEach(System.out::println);
     }
 }

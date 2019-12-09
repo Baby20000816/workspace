@@ -15,10 +15,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
- * @author mq_xu
+ * @author
  * @ClassName UserServiceImpl
  * @Description 用户业务逻辑接口实现类
  * @Date 2019/11/9
@@ -28,6 +30,7 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao = DaoFactory.getUserDaoInstance();
     private ArticleDao articleDao = DaoFactory.getArticleDaoInstance();
     private static Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
 
     @Override
     public Result signIn(UserDto userDto) {
@@ -103,7 +106,9 @@ public class UserServiceImpl implements UserService {
                 logger.error("根据用户id获取文章列表数据出现异常");
             }
         }
+
         return Result.failure(ResultCode.RESULT_CODE_DATA_NONE);
+
     }
 
     @Override
@@ -122,29 +127,40 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Result checkMobile(String mobile) {
-        User user = null;
+    public Result upDate(User user) {
         try {
-            user = userDao.findUserByMobile(mobile);
+            userDao.update(user);
         } catch (SQLException e) {
-            logger.error("根据手机号查询用户信息出现异常");
+            logger.error("更新用户出现异常");
+            return Result.failure(ResultCode.USER_UPDATE_FAIL);
         }
-        if (user == null) {
-            return Result.success(ResultCode.USER_NOT_EXIST);
-        } else {
-            return Result.failure(ResultCode.USER_HAS_EXISTED);
-        }
+        return Result.success();
     }
 
     @Override
     public Result signUp(UserDto userDto) {
-        User user = new User();
+        User user1 = null;
         try {
-            userDao.insert(user);
-            return Result.success();
+            user1 = userDao.findUserByMobile(userDto.getMobile());
         } catch (SQLException e) {
-            logger.error("新增用户出现异常");
-            return Result.failure(ResultCode.USER_SIGN_UP_FAIL);
+            logger.error("根据用户手机号查询用户出现异常");
+        }
+        if (user1 != null) {
+            return Result.failure(ResultCode.USER_HAS_EXISTED);
+        } else {
+            try {
+                userDto.setPassword(DigestUtils.md5Hex(userDto.getPassword()));
+                userDto.setBirthday(LocalDate.now());
+                userDto.setCreateTime(LocalDateTime.now());
+                userDto.setNickname("新用户");
+                userDao.insert(userDto);
+            } catch (SQLException e) {
+                logger.error("新增用户出现异常");
+                return Result.failure(ResultCode.USER_SIGN_UP_FAIL);
+            }
+            return Result.success();
         }
     }
+
+
 }

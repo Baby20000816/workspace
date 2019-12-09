@@ -37,7 +37,7 @@ public class ArticleDaoTest {
 
     @Test
     public void selectByPage() throws SQLException {
-        List<ArticleVo> articleVoList = articleDao.selectByPage(1, 10);
+        List<ArticleVo> articleVoList = articleDao.selectByPage(10 , 10);
         articleVoList.forEach(System.out::println);
     }
 

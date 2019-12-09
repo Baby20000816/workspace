@@ -3,6 +3,7 @@ package com.scs.web.blog.dao;
 import com.scs.web.blog.entity.ArticleAdd;
 
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * @author jh_wu
@@ -14,4 +15,5 @@ import java.sql.SQLException;
 public interface ArticleAddDao {
 
     int insert(ArticleAdd articleadd) throws SQLException;
+    List<ArticleAdd> selectAll() throws SQLException;
 }

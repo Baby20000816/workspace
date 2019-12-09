@@ -4,9 +4,9 @@ import com.scs.web.blog.dao.ArticleAddDao;
 import com.scs.web.blog.entity.ArticleAdd;
 import com.scs.web.blog.util.DbUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -36,5 +36,24 @@ public class ArticleAddDaoImpl implements ArticleAddDao {
         int n = pst.executeUpdate();
         DbUtil.close(connection, pst);
         return n;
+    }
+
+    @Override
+    public List<ArticleAdd> selectAll() throws SQLException {
+        List<ArticleAdd> articleAddList = new ArrayList<>();
+        Connection connection = DbUtil.getConnection();
+        String sql = "SELECT * FROM t_article ORDER BY id DESC ";
+        PreparedStatement pstmt = connection.prepareStatement(sql) ;
+        ResultSet rs = pstmt. executeQuery();
+        while (rs.next()) {
+            ArticleAdd comment = new ArticleAdd();
+            comment. setId(rs.getLong("id"));
+            comment. setUserId (rs.getLong("user_id"));
+            comment. setContent(rs.getString("content"));
+            Timestamp timestamp = rs.getTimestamp("create_time");
+            comment.setCreateTime (timestamp.toLocalDateTime());
+            articleAddList.add(comment);
+        }
+        return articleAddList ;
     }
 }
