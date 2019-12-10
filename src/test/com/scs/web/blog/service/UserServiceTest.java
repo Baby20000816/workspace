@@ -29,7 +29,7 @@ public class UserServiceTest {
         User user = new User();
         user.setNickname("wu");
         user.setPassword("123321");
-        user.setAddress("中国,江苏省,苏州市");
+        user.setIntroduction("我jio得海星");
         user.setId((long) 1);
         Result rs= userService.upDate(user);
         System.out.println(rs);
