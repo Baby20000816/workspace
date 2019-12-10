@@ -1,7 +1,6 @@
 package com.scs.web.blog.service;
 
 import com.scs.web.blog.domain.dto.UserDto;
-import com.scs.web.blog.entity.User;
 import com.scs.web.blog.factory.ServiceFactory;
 import com.scs.web.blog.util.Result;
 import org.junit.Test;
@@ -26,7 +25,7 @@ public class UserServiceTest {
 
     @Test
     public void upDate() {
-        User user = new User();
+        UserDto user = new UserDto();
         user.setNickname("wu");
         user.setPassword("123321");
         user.setIntroduction("我jio得海星");
