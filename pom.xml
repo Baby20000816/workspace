@@ -27,6 +27,11 @@
             <version>1.12.1</version>
         </dependency>
 
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>4.6.8</version>
+        </dependency>
         <!--mysql驱动-->
         <dependency>
             <groupId>mysql</groupId>

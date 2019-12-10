@@ -51,6 +51,15 @@ public class UserDaoTest {
 
     @Test
     public void update() throws SQLException {
+        UserDto user = new UserDto();
+        user.setNickname("wjh");
+        user.setPassword("111");
+        user.setIntroduction("我爱中国,江苏省,苏州市");
+        user.setId((long) 1);
+        int n = userDao.update(user);
+        System.out.println(n);
+
     }
+
 
 }

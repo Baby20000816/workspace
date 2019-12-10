@@ -1,7 +1,6 @@
 package com.scs.web.blog.service;
 
 import com.scs.web.blog.domain.dto.UserDto;
-import com.scs.web.blog.entity.User;
 import com.scs.web.blog.util.Result;
 
 /**
@@ -57,5 +56,5 @@ public interface UserService {
      * @param user
      * @return
      */
-    Result upDate(User user);
+    Result upDate(UserDto userDto);
 }

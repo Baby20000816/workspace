@@ -23,9 +23,13 @@ public interface UserDao {
      */
     void insert(UserDto userDto) throws SQLException;
 
-
-
-    void update(User user) throws SQLException;
+    /**
+     * 修改用户资料
+     * @param userList
+     * @throws SQLException
+     * @return
+     */
+    int update(UserDto userDto) throws SQLException;
 
     /**
      * 批量新增用户

@@ -29,4 +29,6 @@ public class DaoFactory {
     }
 
     public static ArticleAddDao getArticleAddDaoInstance(){ return new ArticleAddDaoImpl(); }
+
+    public static CommentDao getCommentDaoInstance() { return new CommentDaoImpl(); }
 }

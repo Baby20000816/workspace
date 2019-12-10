@@ -84,6 +84,22 @@ public class UserController extends HttpServlet {
         out.close();
     }
 
+    private void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException,IOException{
+        Gson gson = new GsonBuilder().create();
+        BufferedReader reader = req.getReader();
+        StringBuilder stringBuilder = new StringBuilder();
+        String line = null;
+        while ((line=reader.readLine())!=null){
+            stringBuilder.append(line);
+        }
+        System.out.println(stringBuilder);
+        UserDto user = gson.fromJson(stringBuilder.toString(), UserDto.class);
+        Result result = userService.upDate(user);
+        PrintWriter out = resp.getWriter();
+        out.print(gson.toJson(result));
+        out.close();
+    }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String uri = req.getRequestURI().trim();
@@ -93,14 +109,10 @@ public class UserController extends HttpServlet {
             signUp(req, resp);
         } else if ("/api/user/check".equals(uri)) {
             check(req, resp);
-        }else{
-
-            String id = req.getParameter("id");
-            String ur = req.getRequestURI().trim();
-            System.out.println(ur);
-            String iscare = req.getParameter("iscare");
-            System.out.println(id);
-            update(resp, Long.parseLong(id), Integer.parseInt(iscare));
+        }else if ("/api/user/change".equals(uri)){
+            update(req, resp);
+        }else {
+            System.out.println(uri);
         }
     }
 
@@ -207,14 +219,4 @@ public class UserController extends HttpServlet {
         out.close();
     }
 
-
-    private void update(HttpServletResponse resp,  long id, int iscare) throws ServletException, IOException {
-//        Gson gson = new GsonBuilder().create();
-//        Result rs = userService.update(id, iscare);
-//        PrintWriter out = resp.getWriter();
-//        out.print(gson.toJson(rs));
-//        out.close();
-
-
-    }
 }

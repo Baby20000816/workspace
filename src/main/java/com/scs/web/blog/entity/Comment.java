@@ -7,18 +7,23 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 /**
+ * @author zh_yan
  * @ClassName Comment
  * @Description TODO
- * @Author mq_xu
- * @Date 2019/11/29
+ * @Date 2019/12/3
+ * @Version 1.0
  **/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Comment {
-    private Long id;
-    private Long userId;
-    private Long articleId;
-    private String content;
-    private LocalDateTime createTime;
+private Long id;
+private String nickname;
+private Long userId;
+private Long articleId;
+private String content;
+private LocalDateTime createTime;
+
+
+
 }

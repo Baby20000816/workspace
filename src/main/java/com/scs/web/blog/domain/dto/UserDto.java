@@ -15,6 +15,8 @@ import java.time.LocalDateTime;
  **/
 @Data
 public class UserDto implements Serializable {
+    private Long id;
+    private String introduction;
     private String mobile;
     private String password;
     private String nickname;
