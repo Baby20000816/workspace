@@ -22,7 +22,7 @@ public interface ArticleDao {
      * @return
      */
     int insert(Article article) throws SQLException;
-
+    int batchDelete(long id) throws SQLException;
     /**
      * 批量新增文章
      *

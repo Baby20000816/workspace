@@ -8,7 +8,7 @@ public class CommentServiceTest {
     private CommentService commentService = ServiceFactory.getCommentServiceInstance();
     @Test
     public void batchDelete() {
-        Result result =  commentService.batchDelete((long) 20);
+        Result result =  commentService.batchDelete((long) 8);
         System.out.println(result);
     }
 }

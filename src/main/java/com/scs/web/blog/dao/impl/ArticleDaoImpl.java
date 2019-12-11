@@ -45,6 +45,20 @@ public class ArticleDaoImpl implements ArticleDao {
     }
 
     @Override
+    public int batchDelete(long id) throws SQLException {
+        Connection connection = DbUtil.getConnection();
+        connection.setAutoCommit(false);
+        String sql = "DELETE FROM t_article WHERE id = ? " ;
+        int n = 0;
+        PreparedStatement pst = connection.prepareStatement(sql);
+        pst.setLong(1,id);
+        n = pst.executeUpdate();
+        connection.commit();
+        DbUtil.close(connection,pst);
+        return n;
+    }
+
+    @Override
     public void batchInsert(List<Article> articleList) throws SQLException {
         Connection connection = DbUtil.getConnection();
         connection.setAutoCommit(false);

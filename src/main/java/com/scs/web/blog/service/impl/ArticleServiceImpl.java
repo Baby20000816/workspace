@@ -70,6 +70,21 @@ public class ArticleServiceImpl implements ArticleService {
         }
     }
 
+
+    @Override
+    public Result batchDelete(long id) {
+        int n =0 ;
+        try {
+            n = articleDao.batchDelete(id);
+        } catch (SQLException e) {
+            logger.error("根据id删除文章出现异常");
+        }
+        if (n != 0) {
+            return Result.success(n);
+        } else {
+            return Result.failure(ResultCode.RESULT_CODE_DATA_NONE);
+        }
+    }
     @Override
     public Result selectByKeywords(String keywords) {
         List<ArticleVo> articleVoList = null;

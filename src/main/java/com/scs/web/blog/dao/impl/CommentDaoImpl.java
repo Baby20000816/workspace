@@ -47,6 +47,7 @@ public class CommentDaoImpl implements CommentDao {
         String sql = "DELETE FROM t_comment WHERE id = ? " ;
         int n = 0;
         PreparedStatement pst = connection.prepareStatement(sql);
+
         pst.setLong(1,id);
         n = pst.executeUpdate();
         connection.commit();

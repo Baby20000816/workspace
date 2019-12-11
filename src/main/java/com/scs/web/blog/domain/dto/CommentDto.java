@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
  **/
 @Data
 public class CommentDto implements Serializable {
-
+    private Long id;
     /*private Long userId;
     private Long articleId;*/
     private String nickname;

@@ -46,6 +46,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public Result batchDelete(Long id) {
+
         int n =0 ;
         try {
             n = commentDao.batchDelete(id);

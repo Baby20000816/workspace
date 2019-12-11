@@ -17,7 +17,7 @@ public interface ArticleService {
      * @return
      */
     Result getHotArticles();
-
+    Result batchDelete(long id);
     /**
      * 获取分页文章
      *
