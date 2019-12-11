@@ -141,6 +141,8 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+
+
     @Override
     public Result signUp(UserDto userDto) {
         User user1 = null;
@@ -164,6 +166,23 @@ public class UserServiceImpl implements UserService {
             }
             return Result.success();
         }
+    }
+
+    @Override
+    public Result follow(long id, int iscare) {
+        int userList =0;
+        try {
+            userList = userDao.follow(id,iscare);
+        } catch (SQLException e) {
+            logger.error("根据id查询用户是否关注出现异常");
+        }
+        if (userList != 0) {
+            return Result.success(userList);
+        }
+        else {
+            return Result.failure(ResultCode.RESULT_CODE_DATA_NONE);
+        }
+
     }
 
 

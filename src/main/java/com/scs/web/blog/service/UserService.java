@@ -57,4 +57,6 @@ public interface UserService {
      * @return
      */
     Result upDate(UserDto userDto);
+
+    Result follow(long id,int iscare);
 }

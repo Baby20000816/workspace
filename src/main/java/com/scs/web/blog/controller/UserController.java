@@ -111,8 +111,13 @@ public class UserController extends HttpServlet {
             check(req, resp);
         }else if ("/api/user/change".equals(uri)){
             update(req, resp);
-        }else {
-            System.out.println(uri);
+        }else{
+            String id = req.getParameter("id");
+            String ur = req.getRequestURI().trim();
+            System.out.println(ur);
+            String iscare = req.getParameter("iscare");
+            System.out.println(id);
+            follow(resp, Long.parseLong(id), Integer.parseInt(iscare));
         }
     }
 
@@ -148,6 +153,14 @@ public class UserController extends HttpServlet {
 
     private void check(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().println("验证账号");
+    }
+
+    private void follow(HttpServletResponse resp,  long id, int iscare) throws ServletException, IOException {
+        Gson gson = new GsonBuilder().create();
+        Result rs = userService.follow(id, iscare);
+        PrintWriter out = resp.getWriter();
+        out.print(gson.toJson(rs));
+        out.close();
     }
 
     private void signUp(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{

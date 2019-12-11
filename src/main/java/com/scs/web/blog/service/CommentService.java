@@ -21,6 +21,7 @@ public interface CommentService {
      */
     Result addArtComments(Comment comment);
 
+    Result batchDelete(Long id);
 
     List<Comment> listComment();
     /**

@@ -59,6 +59,22 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public int follow(long id, int iscare) throws SQLException {
+        Connection connection = DbUtil.getConnection();
+        String sql = "UPDATE t_user SET iscare = ? WHERE id = ?";
+        PreparedStatement pst = connection.prepareStatement(sql);
+        if(iscare == 0) {
+            pst.setInt(1, 1);
+        }else{
+            pst.setInt(1, 0);
+        }
+        pst.setLong(2, id);
+       /* int n = pst.executeUpdate();
+        return n;*/
+        return pst.executeUpdate();
+    }
+
+    @Override
     public void batchInsert(List<User> userList) throws SQLException {
         Connection connection = DbUtil.getConnection();
         connection.setAutoCommit(false);

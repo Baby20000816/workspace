@@ -40,7 +40,19 @@ public class CommentDaoImpl implements CommentDao {
         return n;
     }
 
-
+    @Override
+    public int batchDelete(Long id) throws SQLException {
+        Connection connection = DbUtil.getConnection();
+        connection.setAutoCommit(false);
+        String sql = "DELETE FROM t_comment WHERE id = ? " ;
+        int n = 0;
+        PreparedStatement pst = connection.prepareStatement(sql);
+        pst.setLong(1,id);
+        n = pst.executeUpdate();
+        connection.commit();
+        DbUtil.close(connection,pst);
+        return n;
+    }
 
     @Override
     public List<Comment> selectHotComments() throws SQLException {

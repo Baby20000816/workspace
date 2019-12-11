@@ -57,6 +57,8 @@ public interface UserDao {
     List<User> selectHotUsers() throws SQLException;
 
 
+
+
     /**
      * 查询分页用户
      *
@@ -81,6 +83,14 @@ public interface UserDao {
      * @throws SQLException
      */
     List<User> selectByKeywords(String keywords) throws SQLException;
+
+    /**
+     * 关注用户
+     * @param keywords
+     * @return
+     * @throws SQLException
+     */
+    int follow(long id, int iscare) throws SQLException;
 
 
 }

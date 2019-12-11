@@ -44,6 +44,21 @@ public class CommentServiceImpl implements CommentService {
         return Result.failure(ResultCode.RESULT_CODE_DATA_NONE);
     }
 
+    @Override
+    public Result batchDelete(Long id) {
+        int n =0 ;
+        try {
+            n = commentDao.batchDelete(id);
+        } catch (SQLException e) {
+            logger.error("根据nickname删除留言出现异常");
+        }
+        if (n != 0) {
+            return Result.success(n);
+        } else {
+            return Result.failure(ResultCode.COMMENT_DELETE_FAIL);
+        }
+    }
+
 
     @Override
     public List<Comment> listComment() {

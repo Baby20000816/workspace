@@ -58,7 +58,11 @@ public class UserDaoTest {
         user.setId((long) 1);
         int n = userDao.update(user);
         System.out.println(n);
-
+    }
+    @Test
+    public void follow() throws SQLException {
+        int n = userDao.follow(3, 0);
+        System.out.println(n);
     }
 
 
