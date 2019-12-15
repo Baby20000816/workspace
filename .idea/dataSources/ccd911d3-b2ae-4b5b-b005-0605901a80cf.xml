@@ -1182,10 +1182,10 @@
     </column>
     <column id="287" parent="235" name="nickname">
       <Position>2</Position>
-      <DataType>varchar(60)|0s</DataType>
+      <DataType>char(60)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="235" name="user_id">
+    <column id="288" parent="235" name="userid">
       <Position>3</Position>
       <Comment>用户id</Comment>
       <DataType>bigint(20)|0s</DataType>

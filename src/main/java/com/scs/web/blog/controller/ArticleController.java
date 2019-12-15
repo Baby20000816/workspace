@@ -87,6 +87,18 @@ public class ArticleController extends HttpServlet {
     }
 
     @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String info = req.getRequestURI().trim();
+        String id = info.substring(info.lastIndexOf("/") + 1);
+        System.out.println(id);
+        Result result = articleService.batchDelete(Long.parseLong(id));
+        Gson gson = new GsonBuilder().create();
+        PrintWriter out = resp.getWriter();
+        out.print(gson.toJson(result));
+        out.close();
+    }
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String uri = req.getRequestURI().trim();
         switch (uri) {

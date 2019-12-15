@@ -1,6 +1,7 @@
 package com.scs.web.blog.dao.impl;
 
 import com.scs.web.blog.dao.ArticleAddDao;
+import com.scs.web.blog.domain.dto.ArticleDto;
 import com.scs.web.blog.entity.ArticleAdd;
 import com.scs.web.blog.util.DbUtil;
 
@@ -32,7 +33,6 @@ public class ArticleAddDaoImpl implements ArticleAddDao {
         pst.setInt(7,0);
         pst.setInt(8,0);
         pst.setObject(9, articleadd.getCreateTime());
-        pst.executeUpdate();
         int n = pst.executeUpdate();
         DbUtil.close(connection, pst);
         return n;
@@ -55,5 +55,23 @@ public class ArticleAddDaoImpl implements ArticleAddDao {
             articleAddList.add(comment);
         }
         return articleAddList ;
+    }
+
+    @Override
+    public int update(ArticleDto user) throws SQLException {
+        Connection connection = DbUtil.getConnection();
+        connection.setAutoCommit(false);
+        String sql = "UPDATE t_article SET title = ?,summary=?,thumbnail=?,content=?WHERE id = ?";
+        int n = 0;
+        PreparedStatement pst = connection.prepareStatement(sql);
+        pst.setString(1, user.getTitle());
+        pst.setString(2, user.getSummary());
+        pst.setString(3, user.getThumbnail());
+        pst.setString(4, user.getContent());
+        pst.setLong(5, user.getId());
+        n = pst.executeUpdate();
+        connection.commit();
+        DbUtil.close(connection,pst);
+        return n;
     }
 }

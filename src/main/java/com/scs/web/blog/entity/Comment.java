@@ -19,11 +19,8 @@ import java.time.LocalDateTime;
 public class Comment {
 private Long id;
 private String nickname;
-private Long userId;
+private String userid;
 private Long articleId;
 private String content;
 private LocalDateTime createTime;
-
-
-
 }

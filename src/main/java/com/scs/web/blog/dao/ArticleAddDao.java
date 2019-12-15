@@ -1,5 +1,6 @@
 package com.scs.web.blog.dao;
 
+import com.scs.web.blog.domain.dto.ArticleDto;
 import com.scs.web.blog.entity.ArticleAdd;
 
 import java.sql.SQLException;
@@ -16,4 +17,11 @@ public interface ArticleAddDao {
 
     int insert(ArticleAdd articleadd) throws SQLException;
     List<ArticleAdd> selectAll() throws SQLException;
+    /**
+     * 修改文章资料
+     * @param articleDto
+     * @throws SQLException
+     * @return
+     */
+    int update(ArticleDto articleDto) throws SQLException;
 }

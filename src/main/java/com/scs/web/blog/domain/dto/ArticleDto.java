@@ -14,9 +14,11 @@ import java.io.Serializable;
 @Data
 public class ArticleDto implements Serializable {
     private Long userId;
+    private Long id;
     private Long topicId;
     private String title;
     private String summary;
     private String thumbnail;
     private String content;
+
 }

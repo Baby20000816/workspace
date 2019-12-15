@@ -3,6 +3,7 @@ package com.scs.web.blog.service.impl;
 import com.scs.web.blog.dao.ArticleDao;
 import com.scs.web.blog.dao.CommentDao;
 import com.scs.web.blog.dao.UserDao;
+import com.scs.web.blog.domain.dto.CommentDto;
 import com.scs.web.blog.entity.Comment;
 import com.scs.web.blog.factory.DaoFactory;
 import com.scs.web.blog.service.CommentService;
@@ -28,7 +29,7 @@ public class CommentServiceImpl implements CommentService {
     private CommentDao commentDao = DaoFactory.getCommentDaoInstance();
     private Logger logger = LoggerFactory.getLogger(CommentService.class);
     @Override
-    public Result addArtComments(Comment comment) {
+    public Result addArtComments(CommentDto comment) {
         int n = 0;
         try {
             comment.setCreateTime(LocalDateTime.now());
@@ -42,6 +43,21 @@ public class CommentServiceImpl implements CommentService {
             return Result.success(n);
         }
         return Result.failure(ResultCode.RESULT_CODE_DATA_NONE);
+    }
+
+    @Override
+    public Result selectByPage(int currentPage, int count) {
+        List<Comment> commentList = null;
+        try {
+            commentList = commentDao.selectByPage(currentPage, count);
+        } catch (SQLException e) {
+            logger.error("分页查询留言出现异常");
+        }
+        if (commentList != null) {
+            return Result.success(commentList);
+        } else {
+            return Result.failure(ResultCode.RESULT_CODE_DATA_NONE);
+        }
     }
 
     @Override

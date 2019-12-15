@@ -1,5 +1,6 @@
 package com.scs.web.blog.dao;
 
+import com.scs.web.blog.domain.dto.CommentDto;
 import com.scs.web.blog.entity.Comment;
 
 import java.sql.SQLException;
@@ -25,8 +26,8 @@ public interface CommentDao {
        * @throws SQLException
        */
     /*  int AddComments (CommentDto commentDto) throws SQLException;*/
-
-      int insert(Comment user) throws SQLException;
+      List<Comment> selectByPage(int currentPage, int count)throws SQLException;
+      int insert(CommentDto user) throws SQLException;
 
       int batchDelete(Long id) throws SQLException;
 

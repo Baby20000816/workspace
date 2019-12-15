@@ -1,5 +1,6 @@
 package com.scs.web.blog.service;
 
+import com.scs.web.blog.domain.dto.CommentDto;
 import com.scs.web.blog.entity.Comment;
 import com.scs.web.blog.util.Result;
 
@@ -17,9 +18,10 @@ public interface CommentService {
     /**
      * 新增评论
      * @param commentDto
+     * @param comment
      * @return
      */
-    Result addArtComments(Comment comment);
+    Result addArtComments(CommentDto comment);
 
     Result batchDelete(Long id);
 
@@ -29,5 +31,5 @@ public interface CommentService {
      * @param id
      * @return
      */
-
+    Result selectByPage(int currentPage,int count);
 }

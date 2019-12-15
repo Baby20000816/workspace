@@ -158,7 +158,6 @@ public class UserServiceImpl implements UserService {
                 userDto.setPassword(DigestUtils.md5Hex(userDto.getPassword()));
                 userDto.setBirthday(LocalDate.now());
                 userDto.setCreateTime(LocalDateTime.now());
-                userDto.setNickname("新用户");
                 userDao.insert(userDto);
             } catch (SQLException e) {
                 logger.error("新增用户出现异常");

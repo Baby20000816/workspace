@@ -28,7 +28,6 @@ public class UserController extends HttpServlet {
     private static Logger logger = LoggerFactory.getLogger(UserController.class);
     private UserService userService = ServiceFactory.getUserServiceInstance();
 
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String uri = req.getRequestURI().trim();
@@ -72,10 +71,8 @@ public class UserController extends HttpServlet {
         out.close();
     }
 
-
     private void getUser(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String info = req.getPathInfo().trim();
-        //取得路径参数
         String id = info.substring(info.indexOf("/") + 1);
         Gson gson = new GsonBuilder().create();
         Result result = userService.getUser(Long.parseLong(id));
@@ -111,7 +108,7 @@ public class UserController extends HttpServlet {
             check(req, resp);
         }else if ("/api/user/change".equals(uri)){
             update(req, resp);
-        }else{
+        }else if ("/api/user/care".equals(uri)){
             String id = req.getParameter("id");
             String ur = req.getRequestURI().trim();
             System.out.println(ur);
@@ -132,8 +129,6 @@ public class UserController extends HttpServlet {
         Gson gson = new GsonBuilder().create();
         UserDto userDto = gson.fromJson(stringBuilder.toString(), UserDto.class);
         String inputCode = userDto.getCode().trim();
-
-        //取得客户端请求头里带来的token
         String sessionId = req.getHeader("Access-Token");
         System.out.println("客户端传来的JSESSIONID：" + sessionId);
         MySessionContext myc = MySessionContext.getInstance();
@@ -164,40 +159,6 @@ public class UserController extends HttpServlet {
     }
 
     private void signUp(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-       /* //请求字符集设置
-        req.setCharacterEncoding("UTF-8");
-        //接送客户端船体的Json数据，通过缓冲字符流按行读取，存入可变长字符串中
-        BufferedReader reader = req.getReader();
-        StringBuilder stringBuilder = new StringBuilder();
-        String line = null;
-        while((line = reader.readLine())!=null){
-            stringBuilder.append(line);
-        }
-        System.out.println(stringBuilder.toString());
-        //将接受到的客户端JSON字符串转成User对象
-        Gson gson = new GsonBuilder().create();
-        User user =gson.fromJson(stringBuilder.toString(),User.class);
-
-
-        //插入数据库，并返回该行主键
-//        int id=0;
-//        try {
-//            id = DaoFactory.getUserDaoInstance().insert(user);
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        //补全user的id字段信息
-//        user.setId((long) id);
-        //通过response对象返回Json信息
-        Result result = userService.signUp(userDao);
-        resp.setContentType("application/json;charset=utf-8");
-        int code = resp.getStatus();
-        String msg = code == 200 ? "成功":"失败";
-        ResponseObject ro = ResponseObject.success(code,msg,user);
-        PrintWriter out = resp.getWriter();
-        out.print(gson.toJson(ro));
-        out.close();*/
         BufferedReader reader = req.getReader();
         StringBuilder stringBuilder = new StringBuilder();
         String line = null;
@@ -207,7 +168,6 @@ public class UserController extends HttpServlet {
         System.out.println(stringBuilder.toString());
         Gson gson = new GsonBuilder().create();
         Map<String, Object> map = null;
-        // 获取请求路径
         UserDto userDto = gson.fromJson(stringBuilder.toString(), UserDto.class);
         String requestPath = req.getRequestURI().trim();
         PrintWriter out = resp.getWriter();
@@ -218,18 +178,6 @@ public class UserController extends HttpServlet {
         ResponseObject ro = ResponseObject.success(code,msg,userDto);
         PrintWriter out1 = resp.getWriter();
         out.print(gson.toJson(ro));
-       /* String msg=result;
-        ResponseObject ro;
-        switch (result) {
-            case ResultCode.SUCCESS:
-                ro = ResponseObject.success(200, "成功", map.get("data"));
-                break;
-            case ResultCode.USER_SIGN_UP_FAILURE:
-            default:
-                ro = ResponseObject.success(200, "成功");
-        }
-        out.print(gson.toJson(ro));*/
         out.close();
     }
-
 }

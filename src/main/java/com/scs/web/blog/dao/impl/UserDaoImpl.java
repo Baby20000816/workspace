@@ -45,13 +45,14 @@ public class UserDaoImpl implements UserDao {
     public int update(UserDto user) throws SQLException {
         Connection connection = DbUtil.getConnection();
         connection.setAutoCommit(false);
-        String sql = "UPDATE t_user SET nickname = ?,password=?,introduction=?  WHERE id = ?";
+        String sql = "UPDATE t_user SET nickname = ?,password=?,introduction=?,gender=?WHERE id = ?";
         int n = 0;
         PreparedStatement pst = connection.prepareStatement(sql);
         pst.setString(1, user.getNickname());
         pst.setString(2, DigestUtils.md5Hex(user.getPassword()));
         pst.setString(3, user.getIntroduction());
-        pst.setLong(4, user.getId());
+        pst.setString(4, user.getGender());
+        pst.setLong(5, user.getId());
         n = pst.executeUpdate();
         connection.commit();
         DbUtil.close(connection,pst);

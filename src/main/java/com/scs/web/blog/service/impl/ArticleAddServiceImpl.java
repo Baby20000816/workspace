@@ -1,6 +1,7 @@
 package com.scs.web.blog.service.impl;
 
 import com.scs.web.blog.dao.ArticleAddDao;
+import com.scs.web.blog.domain.dto.ArticleDto;
 import com.scs.web.blog.entity.ArticleAdd;
 import com.scs.web.blog.factory.DaoFactory;
 import com.scs.web.blog.service.ArticleAddService;
@@ -37,5 +38,20 @@ public class ArticleAddServiceImpl implements ArticleAddService {
             return Result.success(n);
         }
         return Result.failure(ResultCode.ARTICLE_WRITER_FAIL);
+    }
+
+    @Override
+    public Result upDate(ArticleDto articleDto) {
+        int n = 0;
+        try {
+            n = articleAddDao.update(articleDto);
+        } catch (SQLException e) {
+            logger.error("修改文章出现异常");
+        }
+        if (n != 0) {
+            return Result.success(n);
+        } else {
+            return Result.failure(ResultCode.RESULT_CODE_DATA_NONE);
+        }
     }
 }

@@ -123,14 +123,11 @@ public class BeanHandler {
             while (rs.next()) {
                 Comment comment = new Comment();
                 comment.setId(rs.getLong("id"));
-
                 comment.setNickname(rs.getString("nickname"));
-                comment.setUserId(rs.getLong("user_id"));
+                comment.setUserid(rs.getString("userid"));
                 comment.setArticleId(rs.getLong("article_id"));
                 comment.setContent(rs.getString("content"));
                 comment.setCreateTime(rs.getTimestamp("create_time").toLocalDateTime());
-
-
                 commentList.add(comment);
             }
         } catch (SQLException e) {

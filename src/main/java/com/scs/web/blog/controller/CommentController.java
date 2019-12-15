@@ -3,6 +3,7 @@ package com.scs.web.blog.controller;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.scs.web.blog.dao.CommentDao;
+import com.scs.web.blog.domain.dto.CommentDto;
 import com.scs.web.blog.entity.Comment;
 import com.scs.web.blog.factory.DaoFactory;
 import com.scs.web.blog.factory.ServiceFactory;
@@ -35,8 +36,6 @@ public class CommentController extends HttpServlet {
     private CommentDao commentDao = DaoFactory.getCommentDaoInstance();
     private CommentService commentService = ServiceFactory.getCommentServiceInstance();
 
-
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -48,9 +47,16 @@ public class CommentController extends HttpServlet {
         PrintWriter out = resp.getWriter();
         out.print(gson.toJson(comments));
         out.close();
+
+        String uri = req.getRequestURI().trim();
+        if ("/api/comment/get".equals(uri)) {
+            String page = req.getParameter("page");
+            String count = req.getParameter("count");
+            if (page != null) {
+                getTopicsByPage(resp, Integer.parseInt(page), Integer.parseInt(count));
+            }
+        }
     }
-
-
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -73,10 +79,8 @@ public class CommentController extends HttpServlet {
         System.out.println(stringBuilder.toString());
         //将接受到的客户端JSON字符串转成User对象
         Gson gson = new GsonBuilder().create();
-        Comment user =gson.fromJson(stringBuilder.toString(), Comment.class);
-
+        CommentDto user =gson.fromJson(stringBuilder.toString(), CommentDto.class);
         System.out.println(user);
-
         //插入数据库，并返回该行主键
         Result rs = commentService.addArtComments(user);
         //补全user的id字段信息
@@ -89,7 +93,6 @@ public class CommentController extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String info = req.getRequestURI().trim();
-
         String id = info.substring(info.lastIndexOf("/") + 1);
         System.out.println(id);
         Result result = commentService.batchDelete(Long.parseLong(id));
@@ -99,57 +102,12 @@ public class CommentController extends HttpServlet {
         out.close();
     }
 
-
-}
-
-/*
-@WebServlet(urlPatterns ={"/comment", "/comment/*"})
-public class CommentController extends HttpServlet {
-    private CommentService commentService = ServiceFactory.getCommentServiceInstance();
-    private Logger logger = LoggerFactory.getLogger(CommentController.class);
-    private CommentDao commentDao= DaoFactory.getCommentDaoInstance();
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String url = req.getRequestURI().trim();
-        if(url.equals("/comment")){
-            System.out.println("123");
-        }else {
-            System.out.println("12334");
-        }
-    }
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String url = req.getRequestURI().trim();
-        System.out.println(url);
-        if(url.equals("/comment")){
-            addComments(req, resp);
-        }
-    }
-    private void addComments(HttpServletRequest req, HttpServletResponse res) throws IOException {
-        String line = null;
-        BufferedReader reader = req.getReader();
-        StringBuilder stringBuilder = new StringBuilder();
-        while ((line = reader.readLine()) != null){
-            stringBuilder.append(line);
-        }
-       logger.info("添加的评论信息:" + stringBuilder);
+    private void getTopicsByPage(HttpServletResponse resp, int page, int count) throws ServletException, IOException {
         Gson gson = new GsonBuilder().create();
-        CommentDto cdo = gson.fromJson(stringBuilder.toString(), CommentDto.class);
-        int n = commentService.addArtComments(cdo);
-        ResponseObject ro = new ResponseObject();
-        ro.setCode(res.getStatus());
-        if(res.getStatus() == 200){
-            ro.setMsg("成功");
-        }else {
-            ro.setMsg("失败");
-        }
-        ro.setData(n);
-        */
-/*int code = resp.getStatus();
-        String msg = code == 200 ? "成功":"失败";
-        ResponseObject ro = ResponseObject.success(code,msg,commentDao);*//*
-        PrintWriter out = res.getWriter();
-        out.print(gson.toJson(ro));
+        Result result = commentService.selectByPage(page, count);
+        PrintWriter out = resp.getWriter();
+        out.print(gson.toJson(result));
         out.close();
     }
-*/
+
+}

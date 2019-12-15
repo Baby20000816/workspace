@@ -1,5 +1,6 @@
 package com.scs.web.blog.service;
 
+import com.scs.web.blog.domain.dto.ArticleDto;
 import com.scs.web.blog.entity.ArticleAdd;
 import com.scs.web.blog.util.Result;
 
@@ -17,4 +18,5 @@ public interface ArticleAddService {
      * @return
      */
     Result addArticle(ArticleAdd articleAdd);
+    Result upDate(ArticleDto articleDto);
 }

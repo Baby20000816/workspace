@@ -15,6 +15,7 @@ import javax.xml.stream.events.Comment;
 @Data
 public class CommentVo {
     private String avatar;
+    private String userid;
     private String nickname;
     private Comment comment;
     private User user;

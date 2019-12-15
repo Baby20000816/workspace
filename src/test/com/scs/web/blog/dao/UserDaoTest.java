@@ -7,6 +7,7 @@ import com.scs.web.blog.util.JSoupSpider;
 import org.junit.Test;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 public class UserDaoTest {
@@ -16,8 +17,10 @@ public class UserDaoTest {
     @Test
     public void insertUser() throws SQLException {
         UserDto user = new UserDto();
-        user.setMobile("1323");
+        user.setNickname("111");
+        user.setMobile("1391111111");
         user.setPassword("111");
+        user.setBirthday(LocalDate.of(2010,10,10));
         userDao.insert(user);
     }
 
@@ -53,15 +56,16 @@ public class UserDaoTest {
     public void update() throws SQLException {
         UserDto user = new UserDto();
         user.setNickname("wjh");
+        user.setGender("男");
         user.setPassword("111");
         user.setIntroduction("我爱中国,江苏省,苏州市");
-        user.setId((long) 1);
+        user.setId((long) 23);
         int n = userDao.update(user);
         System.out.println(n);
     }
     @Test
     public void follow() throws SQLException {
-        int n = userDao.follow(3, 0);
+        int n = userDao.follow(4, 0);
         System.out.println(n);
     }
 
