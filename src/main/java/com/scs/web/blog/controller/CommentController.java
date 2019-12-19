@@ -38,25 +38,28 @@ public class CommentController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        CommentService commentService = ServiceFactory.getCommentServiceInstance();
-        List<Comment> comments = commentService.listComment();
-        Gson gson = new Gson();
-        resp.setContentType("application/json;charset='utf-8'");
-        resp.setCharacterEncoding("UTF-8");
-        PrintWriter out = resp.getWriter();
-        out.print(gson.toJson(comments));
-        out.close();
-
         String uri = req.getRequestURI().trim();
-        if ("/api/comment/get".equals(uri)) {
+        if ("/api/comment".equals(uri)) {
             String page = req.getParameter("page");
             String count = req.getParameter("count");
+            String articleid = req.getParameter("articleid");
             if (page != null) {
                 getTopicsByPage(resp, Integer.parseInt(page), Integer.parseInt(count));
+            }else if (articleid != null) {
+                selectByArticleId(Long.parseLong(articleid),resp);
             }
+        }else {
+             selectAll(req, resp);
         }
     }
+
+    private void selectByArticleId(long articleid, HttpServletResponse resp)throws ServletException, IOException  {
+        Gson gson = new GsonBuilder().create();
+        Result result = commentService.selectByArticleId(articleid);
+        PrintWriter out = resp.getWriter();
+        out.print(gson.toJson(result));
+        out.close();
+}
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -110,4 +113,14 @@ public class CommentController extends HttpServlet {
         out.close();
     }
 
+    private void selectAll(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        CommentService commentService = ServiceFactory.getCommentServiceInstance();
+        List<Comment> comments = commentService.listComment();
+        Gson gson = new Gson();
+        resp.setContentType("application/json;charset='utf-8'");
+        resp.setCharacterEncoding("UTF-8");
+        PrintWriter out = resp.getWriter();
+        out.print(gson.toJson(comments));
+        out.close();
+    }
 }
