@@ -1,10 +1,8 @@
 package com.scs.web.blog.util;
 
+import com.scs.web.blog.domain.dto.CommentDto;
 import com.scs.web.blog.domain.vo.ArticleVo;
-import com.scs.web.blog.entity.Article;
-import com.scs.web.blog.entity.Comment;
-import com.scs.web.blog.entity.Topic;
-import com.scs.web.blog.entity.User;
+import com.scs.web.blog.entity.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -117,6 +115,23 @@ public class BeanHandler {
         return articleVoList;
     }
 
+    public static List<CommentDto> converComment(ResultSet rs){
+        List<CommentDto> list = new ArrayList<>();
+        try{
+            while(rs.next()){
+                CommentDto comment = new CommentDto();
+                comment.setId(rs.getLong("t_comment.id"));
+                comment.setComment(rs.getString("t_comment.content"));
+                comment.setNickname(rs.getString("t_user.nickname"));
+                list.add(comment);
+            }
+        }catch (SQLException e){
+            logger.error("评论数据结果集解析产生异常");
+        }
+        return list;
+
+    }
+
     public static List<Comment> convertComment(ResultSet rs) {
         List<Comment> commentList = new ArrayList<>();
         try {
@@ -125,7 +140,7 @@ public class BeanHandler {
                 comment.setId(rs.getLong("id"));
                 comment.setNickname(rs.getString("nickname"));
                 comment.setUserid(rs.getString("userid"));
-                comment.setArticleId(rs.getLong("article_id"));
+                comment.setArticleid(rs.getLong("articleid"));
                 comment.setContent(rs.getString("content"));
                 comment.setCreateTime(rs.getTimestamp("create_time").toLocalDateTime());
                 commentList.add(comment);
@@ -136,5 +151,19 @@ public class BeanHandler {
         return commentList;
     }
 
-
+    public static List<UserLike> convertUserLike(ResultSet rs) {
+        List<UserLike> userLikeList = new ArrayList<>();
+        try {
+            while (rs.next()) {
+                UserLike userLike = new UserLike();
+                userLike.setId(rs.getInt("id"));
+                userLike.setFromId(rs.getInt("fromId"));
+                userLike.setToId(rs.getInt("toId"));
+                userLikeList.add(userLike);
+            }
+        } catch (SQLException e) {
+            logger.error("喜欢数据结果集解析产生异常");
+        }
+        return userLikeList;
+    }
 }
